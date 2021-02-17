@@ -44,7 +44,7 @@ var_dump("john");
 // +  -  /  %   *
 
 // 2. penggabung string / concanitation
-// . 
+// menggunakan (.) titik 
 // $nama_depan = "baban";
 // $nama_belakang ="santoso";
 
@@ -67,9 +67,9 @@ var_dump("john");
 // ===  !==
 
 // 6. logika 
-// &&  dan
-// ||  or
-// !   not
+// (&&)  dan
+// (||)  or
+// (!)   not
 
 
 
