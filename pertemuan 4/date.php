@@ -1,5 +1,12 @@
 <?php
 
+/*
+    Farhan Mohamad Bintang Atoilah
+    203040128
+    https://github.com/farhanmb02/pw2021_203040128
+    pertemuan 4 == 19 february 2021
+    function date
+    */
 // memanggil beberapa function built in php 
 
 // 1. date 

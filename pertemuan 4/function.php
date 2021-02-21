@@ -1,4 +1,13 @@
 <?php
+
+/*
+    Farhan Mohamad Bintang Atoilah
+    203040128
+    https://github.com/farhanmb02/pw2021_203040128
+    pertemuan 4 == 19 february 2021
+    function 
+    */
+
 // membuat function sediri 
 // bisa di isi parameter defaul
 function salam($waktu="datang",$nama= "Admin"){
