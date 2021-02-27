@@ -1,4 +1,15 @@
 <?php
+
+
+/*
+    Farhan Mohamad Bintang Atoilah
+    203040128
+    https://github.com/farhanmb02/pw2021_203040128
+    pertemuan 5 == 21 february 2021
+    array
+    */
+
+    
 // pengulangan pada array
 // for / foreach
 
@@ -16,7 +27,7 @@ $angka=[1,2,5,6,7,8,4,3,2];
     <title>latihan</title>
     <style>
     
-    div{
+    .kotak{
         width:50px;
         height:50px;
         background-color:lightblue;
@@ -26,20 +37,33 @@ $angka=[1,2,5,6,7,8,4,3,2];
         float:left;      
     }
     
-    
+    .clear{
+        clear:both;
+    }
     
     </style>
 </head>
 <body>
 
-    <?php for( $i=0; $i<count($angka); $i++ ){  ?>
 
-        <div>
+<!-- menggunakan for  -->
+    <?php for( $i=0; $i<count($angka); $i++ ){  ?>
+        <div class="kotak">
              <?php echo $angka[$i];?> 
         </div>
-
     <?php } ?>
 
-    
+    <div class="clear"></div>
+
+
+<!-- mengunakan foreach -->
+    <?php foreach( $angka as $a )  { ?>
+
+        <div class="kotak"><?php echo $a;?> </div>
+ 
+    <?php } ?>
+
+
+
 </body>
 </html>
