@@ -5,7 +5,7 @@
     203040128
     https://github.com/farhanmb02/pw2021_203040128
     pertemuan 4 == 19 february 2021
-    function date
+    function buildin (date)
     */
     
 // memanggil beberapa function built in php 

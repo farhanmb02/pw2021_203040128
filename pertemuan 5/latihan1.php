@@ -46,6 +46,8 @@ $angka=[1,2,5,6,7,8,4,3,2];
 <body>
 
 
+
+<!-- menampilkan array dengan pengulangan  -->
 <!-- menggunakan for  -->
     <?php for( $i=0; $i<count($angka); $i++ ){  ?>
         <div class="kotak">
