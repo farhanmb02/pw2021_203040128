@@ -1,6 +1,12 @@
 <!-- Menggunaak Post agar dta yang terkirim tidak terlihat di url  -->
 <!-- dan harus menggunakan form  -->
-
+<!-- /*
+Farhan Mohamad Bintang Atoilah
+203040128
+https://github.com/farhanmb02/pw2021_203040128
+pertemuan 7 == 3 maret2021
+Get & Post
+*/ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

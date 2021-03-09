@@ -1,5 +1,11 @@
 <?php
-
+/*
+Farhan Mohamad Bintang Atoilah
+203040128
+https://github.com/farhanmb02/pw2021_203040128
+pertemuan 7 == 3 maret2021
+Get & Post
+*/
 // cek apakah  ada tidak data? di $_GET 
 
 if( 
