@@ -18,7 +18,20 @@ Get & Post
 <body>
     
 <!-- mengirim data dari form dibawah ke latihan 4 menggunakan post  -->
-<form action ="latihan4.php"  method="post">
+<!-- <form action ="latihan4.php"  method="post"> -->
+
+
+<!-- mengcek apakah tombool submit sudah di isi atau di gunakan jika sudah di gunakan maka tampilkan code di bawahh  -->
+<?php if(isset($_POST["tombol"])):?>
+    <h1> Hallo selamat datang <?=$_POST["username"]; ?> </h1>
+<?php endif;?>
+
+
+<!-- mengirim data dari form dibawah ke latihan 3 sendiri menggunakan post tetapi tombol action nya di kosongkan sehingga mengrim data nya ke halaman itu sendiri -->
+<form action =""  method="post">
+
+
+
 
     <!-- membuat inputan user  -->
     Masukan username :
