@@ -1,0 +1,16 @@
+.card-header{
+    font-family: roboto;
+}
+.link {
+    text-decoration: none;
+    color: white;
+}
+.link:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.tombol{
+    border-radius: 20px;
+    margin: 5px;
+}
