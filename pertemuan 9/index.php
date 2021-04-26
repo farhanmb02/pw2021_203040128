@@ -1,7 +1,4 @@
 <?php
-//  CARA 2
-
-
 // Tahap 1
 
 // ngambil data ari file function.php 
@@ -10,12 +7,6 @@ require 'function.php';
 // Tahap 2
 // memanggil function dan memasukan ke variabel mahasiswa 
 $mahasiswa = tampilkan("SELECT * FROM mahasiswa");
-
-
-
-
-
-
 
 ?>
 

@@ -5,12 +5,6 @@
 require 'functions.php';
 
 
-
-$no_pegawai = $_GET["no_pegawai"];
-
-// query data karyawan berdasar id 
-$data = query("SELECT * FROM karyawan WHERE no_pegawai = $no_pegawai ")[0];
-
 // cek apakah tombol submit apakah sudah di tekan 
 if(isset ($_POST["submit"])){
   
@@ -59,23 +53,23 @@ if(isset ($_POST["submit"])){
 
             <li>
                 <label for="gambar">Gambar : </label><br>
-                <input type="text" name="gambar" id="gambar" required value="<?= $data["gambar"]; ?>">
+                <input type="text" name="gambar" id="gambar" required>
             </li>
             <li>
                 <label for="nama">Nama : </label><br>
-                <input type="text" name="nama" id="nama"required value="<?= $data["nama"]; ?>">
+                <input type="text" name="nama" id="nama"required>
             </li>
             <li>
                 <label for="no_pegawai">No Pegawai : </label><br>
-                <input type="text" name="no_pegawai" id="no_pegawai"required value="<?= $data["no_pegawai"]; ?>">
+                <input type="text" name="no_pegawai" id="no_pegawai"required>
             </li>
             <li>
                 <label for="email">Email : </label><br>
-                <input type="text" name="email" id="email"require value="<?= $data["email"]; ?>">
+                <input type="text" name="email" id="email"required>
             </li>
             <li>
                 <label for="bidang">Bidang : </label><br>
-                <select name="bidang" id="bidang" value="<?= $data["bidang"]; ?>">
+                <select name="bidang" id="bidang">
                     <option value="">-----Pilih Bidang-----</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Finance">Finance</option>

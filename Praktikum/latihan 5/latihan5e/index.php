@@ -3,7 +3,18 @@
 require 'functions.php';
 
 // melakukan query ke db 
-$karyawan = tampilkan("SELECT * FROM karyawan");
+
+
+
+// jika tombol cri di klik 
+if(isset($_POST["cari"])){
+    $karyawan = cari($_POST["keyword"]);
+    
+}else{
+    $karyawan = tampilkan("SELECT * FROM karyawan");
+
+}
+
 
 
 ?>
@@ -30,9 +41,11 @@ $karyawan = tampilkan("SELECT * FROM karyawan");
                 </div>
                     <div class="card-body">
                         <h5 class="card-title">Daftar Nama Karyawan</h5>
-
+                        <form action="" method="post">
+                            <input type="text" name="keyword" size="40" placeholder="Cari ...." autocomplete="off" >
+                            <button type="submit" name="cari">Cari</button>
+                        </form>
                         
-
                         <table class="table table-dark table-striped table-hover table-bordered ">
 
 

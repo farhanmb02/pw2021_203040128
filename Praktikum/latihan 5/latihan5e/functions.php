@@ -103,5 +103,20 @@ function ubah($data){
     
 }
 
+function cari($keyword){
+    // memakai LIKE dan % agar data yg di tampilkan data yg mengandung inputan dari user 
+    $query = " SELECT * FROM karyawan 
+    WHERE 
+    nama LIKE '%$keyword%' OR
+    no_pegawai  LIKE '%$keyword%' OR
+    bidang LIKE '%$keyword%' OR
+    email LIKE '%$keyword%' 
+    ";
+
+
+    // mengembalikan fungsi query di baris 7 dengan parameter variabel query lokal
+    return query($query);
+}
+
 
 ?>
