@@ -4,9 +4,21 @@
 // ngambil data ari file function.php 
 require 'function.php';
 
+
+
+
+
+
+
 // Tahap 2
 // memanggil function dan memasukan ke variabel mahasiswa 
 $mahasiswa = tampilkan("SELECT * FROM mahasiswa");
+
+
+
+if(isset($_POST["cari"])){
+    $mahasiswa = cari($_POST["keyword"]);
+}
 
 ?>
 
@@ -26,6 +38,14 @@ $mahasiswa = tampilkan("SELECT * FROM mahasiswa");
     <a href="tambahmhs.php"> Tambah Data Mahasiswa </a>
     <br><br>
     
+    <form action="" method="post">
+        <input type="text" name="keyword" size="40" placeholder="Cari ...." autocomplete="off" autofocus>
+        <button type="submit" name="cari">Cari</button>
+    </form>
+
+
+<br><br>
+
 
     <table border="1" cellpadding="10" cellspacing="0">
 
@@ -38,6 +58,13 @@ $mahasiswa = tampilkan("SELECT * FROM mahasiswa");
 
         </tr>
 
+        <?php if(empty($mahasiswa)) :?>
+            <tr>
+                <td colspan="4">
+                    <p>Data Mahasiswa tidak Ditemukan</p>
+                </td>
+            </tr>
+        <?php endif; ?>
 
 <?php $urutan = 1;?>
 <?php foreach($mahasiswa as $mhs):?>

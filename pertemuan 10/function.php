@@ -97,7 +97,20 @@ function ubah($data){
     return mysqli_affected_rows($koneksidb);
     
 }
+function cari($keyword){
+    // memakai LIKE dan % agar data yg di tampilkan data yg mengandung inputan dari user 
+    $query = " SELECT * FROM mahasiswa 
+    WHERE 
+    nama LIKE '%$keyword%' OR
+    nrp  LIKE '%$keyword%' OR
+    jurusan LIKE '%$keyword%' OR
+    email LIKE '%$keyword%' 
+    ";
 
+
+    // mengembalikan fungsi query di baris 7 dengan parameter variabel query lokal
+    return tampilkan($query);
+}
 
 
 
