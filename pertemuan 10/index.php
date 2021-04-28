@@ -1,7 +1,4 @@
 <?php
-//  CARA 2
-
-
 // Tahap 1
 
 // ngambil data ari file function.php 
@@ -9,13 +6,7 @@ require 'function.php';
 
 // Tahap 2
 // memanggil function dan memasukan ke variabel mahasiswa 
-$mahasiswa = query("SELECT * FROM mahasiswa");
-
-
-
-
-
-
+$mahasiswa = tampilkan("SELECT * FROM mahasiswa");
 
 ?>
 
@@ -40,12 +31,10 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 
         <tr>
             <th>No.</th>
-            <th>Aksi</th>
             <th>Gambar</th>
             <th>Nama</th>
-            <th>NRP</th>
-            <th>Email</th>
-            <th>Jurusan</th>
+            <th>Info</th>
+            
 
         </tr>
 
@@ -54,21 +43,14 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 <?php foreach($mahasiswa as $mhs):?>
         <tr>
             <td><?= $urutan; ?></td>
-            <td>
-                <!-- mengirim data -->
-                <a href="ubah.php?id=<?= $mhs["id"]; ?>">Ubah</a>|
-                <!-- mengirim data -->
-                <!-- dan cek apakah benar mau di hapus  -->
-                <a href="hapusdata.php?id=<?= $mhs["id"]; ?>" onclick=
-                "return confirm('Apakah anda yakin akan menghapus data ini?')">Hapus</a>
-            </td>
+           
             <td>
                 <img src="img/<?= $mhs["gambar"]; ?>" alt="" width="50">
             </td>
             <td><?= $mhs["nama"]; ?></td>
-            <td><?= $mhs["nrp"]; ?></td>
-            <td><?= $mhs["email"]; ?></td>
-            <td><?= $mhs["jurusan"]; ?></td>
+            <td>
+                <a href="detail.php?id=<?= $mhs["id"]; ?>">Lihat detail</a>
+            </td>
         
         </tr>
 <?php $urutan++; ?>

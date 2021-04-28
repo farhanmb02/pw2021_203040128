@@ -4,7 +4,7 @@
 $koneksidb = mysqli_connect("localhost","root","","phpdasar");
 
 // meembuat function untuk di panggil 
-function query($query){
+function tampilkan($query){
 
     // membuat variabel $koneksidb menjadi global scope agarbisa di ambil didalam funtion 
     global $koneksidb;
@@ -97,6 +97,7 @@ function ubah($data){
     return mysqli_affected_rows($koneksidb);
     
 }
+
 
 
 

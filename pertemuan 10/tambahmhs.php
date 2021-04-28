@@ -47,7 +47,7 @@ if(isset ($_POST["submit"])){
 
             <li>
                 <label for="gambar">Gambar : </label>
-                <input type="text" name="gambar" id="gambar" required>
+                <input type="text" name="gambar" id="gambar" required autofocus>
             </li>
             <li>
                 <label for="nama">Nama : </label>
