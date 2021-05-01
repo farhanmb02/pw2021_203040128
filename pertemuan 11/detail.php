@@ -43,7 +43,7 @@ $id = $_GET['id'];
             </ul>
             <div class="card-body">
                 <td>
-                <a href="">Ubah</a>|
+                <a href="ubah.php?id=<?= $mahasiswa["id"]; ?>">Ubah</a>|
                 <!-- dan cek apakah benar mau di hapus  -->
                 <a href="hapusdata.php?id=<?= $mahasiswa["id"]; ?>" onclick=
                 "return confirm('Apakah anda yakin akan menghapus data ini?')">Hapus</a>

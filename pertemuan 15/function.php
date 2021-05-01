@@ -208,6 +208,14 @@ function cari($keyword){
         $password2 = mysqli_real_escape_string($koneksidb,$data["password2"]);
 
 
+        if(empty($username) || empty($password) || empty($password2)){
+            echo "
+            <script>
+                alert('tidak boleh ada yang kosong');
+                
+            </script>"; 
+            return false;
+        }
 
         // cek username sudah ada belum
 

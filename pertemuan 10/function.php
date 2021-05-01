@@ -67,50 +67,6 @@ function hapusdata($id){
     
 }
 
-function ubah($data){
-
-
-    global $koneksidb;
-    
-    // ambil data dari setiap element di dalam form
-
-    $id= $data["id"];
-    $gambar =htmlspecialchars($data["gambar"]);
-    $nama = htmlspecialchars($data["nama"]);
-    $nrp = htmlspecialchars($data["nrp"]);
-    $email = htmlspecialchars($data["email"]);
-      $jurusan = htmlspecialchars($data["jurusan"]);
-      
-      
-      // query insert data 
-      $query ="UPDATE mahasiswa SET
-                nrp='$nrp',
-                nama='$nama',
-                jurusan='$jurusan',
-                email='$email',
-                gambar='$gambar'
-                WHERE id = $id
-                ";
-
-    mysqli_query($koneksidb,$query);
-    
-    return mysqli_affected_rows($koneksidb);
-    
-}
-function cari($keyword){
-    // memakai LIKE dan % agar data yg di tampilkan data yg mengandung inputan dari user 
-    $query = " SELECT * FROM mahasiswa 
-    WHERE 
-    nama LIKE '%$keyword%' OR
-    nrp  LIKE '%$keyword%' OR
-    jurusan LIKE '%$keyword%' OR
-    email LIKE '%$keyword%' 
-    ";
-
-
-    // mengembalikan fungsi query di baris 7 dengan parameter variabel query lokal
-    return tampilkan($query);
-}
 
 
 

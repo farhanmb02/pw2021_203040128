@@ -4,7 +4,7 @@
 $koneksidb = mysqli_connect("localhost","root","","phpdasar");
 
 // meembuat function untuk di panggil 
-function query($query){
+function tampilkan($query){
 
     // membuat variabel $koneksidb menjadi global scope agarbisa di ambil didalam funtion 
     global $koneksidb;
@@ -97,7 +97,6 @@ function ubah($data){
     return mysqli_affected_rows($koneksidb);
     
 }
-
 function cari($keyword){
     // memakai LIKE dan % agar data yg di tampilkan data yg mengandung inputan dari user 
     $query = " SELECT * FROM mahasiswa 
@@ -110,7 +109,9 @@ function cari($keyword){
 
 
     // mengembalikan fungsi query di baris 7 dengan parameter variabel query lokal
-    return query($query);
+    return tampilkan($query);
 }
+
+
 
 ?>

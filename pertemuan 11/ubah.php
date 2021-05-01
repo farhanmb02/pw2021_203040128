@@ -4,12 +4,18 @@
 // ngambil data ari file function.php 
 require 'function.php';
 
+if(!isset($_GET['id'])){
+    header("Location:index.php");
+    exit;
+}
+
+
 
 // ambil data di url 
 $id = $_GET["id"];
 
 // query data mahasiswa berdasar id 
-$mahasiswa = query("SELECT * FROM mahasiswa WHERE id = $id ")[0];
+$mahasiswa = tampilkan("SELECT * FROM mahasiswa WHERE id = $id ")[0];
 
 // cek apakah tombol submit apakah sudah di tekan 
 if(isset ($_POST["submit"])){
@@ -41,7 +47,7 @@ if(isset ($_POST["submit"])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah  Data</title>
+    <title>Ubah  Data</title>
 </head>
 <body>
     <h1>Ubah data mahasiswa </h1><br>

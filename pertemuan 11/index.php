@@ -1,33 +1,24 @@
 <?php
-//  CARA 2
-
-
 // Tahap 1
 
 // ngambil data ari file function.php 
 require 'function.php';
 
-// Tahap 2
-// memanggil function dan memasukan ke variabel mahasiswa (DIURUTKAN BERDASARKAN DATA TERBARU)
-$mahasiswa = query("SELECT * FROM mahasiswa ORDER BY id DESC ");
 
-// jika tombol cri di klik 
+
+
+
+
+
+// Tahap 2
+// memanggil function dan memasukan ke variabel mahasiswa 
+$mahasiswa = tampilkan("SELECT * FROM mahasiswa");
+
+
+
 if(isset($_POST["cari"])){
     $mahasiswa = cari($_POST["keyword"]);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
 
@@ -42,52 +33,51 @@ if(isset($_POST["cari"])){
 <body>
 
 
-   <a href="index.php"> <h1>Daftar mahasiswa</h1></a>
+    <h1>Daftar mahasiswa</h1>
 
     <a href="tambahmhs.php"> Tambah Data Mahasiswa </a>
     <br><br>
     
-
-
     <form action="" method="post">
-        <input type="text" name="keyword" size="40" placeholder="Cari ...." autocomplete="off" >
+        <input type="text" name="keyword" size="40" placeholder="Cari ...." autocomplete="off" autofocus>
         <button type="submit" name="cari">Cari</button>
     </form>
 
-    <br>
+
+<br><br>
+
+
     <table border="1" cellpadding="10" cellspacing="0">
 
         <tr>
             <th>No.</th>
-            <th>Aksi</th>
             <th>Gambar</th>
             <th>Nama</th>
-            <th>NRP</th>
-            <th>Email</th>
-            <th>Jurusan</th>
+            <th>Info</th>
+            
 
         </tr>
 
+        <?php if(empty($mahasiswa)) :?>
+            <tr>
+                <td colspan="4">
+                    <p>Data Mahasiswa tidak Ditemukan</p>
+                </td>
+            </tr>
+        <?php endif; ?>
 
 <?php $urutan = 1;?>
 <?php foreach($mahasiswa as $mhs):?>
         <tr>
             <td><?= $urutan; ?></td>
-            <td>
-                <!-- mengirim data -->
-                <a href="ubah.php?id=<?= $mhs["id"]; ?>">Ubah</a>|
-                <!-- mengirim data -->
-                <!-- dan cek apakah benar mau di hapus  -->
-                <a href="hapusdata.php?id=<?= $mhs["id"]; ?>" onclick=
-                "return confirm('Apakah anda yakin akan menghapus data ini?')">Hapus</a>
-            </td>
+           
             <td>
                 <img src="img/<?= $mhs["gambar"]; ?>" alt="" width="50">
             </td>
             <td><?= $mhs["nama"]; ?></td>
-            <td><?= $mhs["nrp"]; ?></td>
-            <td><?= $mhs["email"]; ?></td>
-            <td><?= $mhs["jurusan"]; ?></td>
+            <td>
+                <a href="detail.php?id=<?= $mhs["id"]; ?>">Lihat detail</a>
+            </td>
         
         </tr>
 <?php $urutan++; ?>

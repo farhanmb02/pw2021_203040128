@@ -1,2 +1,0 @@
-Ini sebenarnya pertemuan 11
-,saya tidak ubah namanya karena link yang saya sudah# kumpulkan akan terubah ketika saya push ulang dengan nama folder yang berbeda
