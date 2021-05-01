@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+
+// jika belom ada variabel global session maka redirec ke login.php 
+if(!isset($_SESSION["login"])){
+    header("location: login.php");
+}
 
 
 // ngambil data ari file function.php 
@@ -7,9 +14,8 @@ require 'function.php';
 
 // cek apakah tombol submit apakah sudah di tekan 
 if(isset ($_POST["submit"])){
-
-
-
+  
+    
     // cek data apakah berasil di tambahkan atau tidak 
     if(tambah($_POST)>0){
         echo "
@@ -41,14 +47,14 @@ if(isset ($_POST["submit"])){
 <body>
     <h1>Tambah data mahasiswa </h1><br>
 
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="" method="post">
         <ul>
 
 
 
             <li>
                 <label for="gambar">Gambar : </label>
-                <input type="file" name="gambar" id="gambar" required>
+                <input type="text" name="gambar" id="gambar" required autofocus>
             </li>
             <li>
                 <label for="nama">Nama : </label>
