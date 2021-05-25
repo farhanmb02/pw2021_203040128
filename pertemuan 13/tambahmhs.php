@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+
+// jika belom ada variabel global session maka redirec ke login.php 
+if(!isset($_SESSION["login"])){
+    header("location: login.php");
+}
 
 
 // ngambil data ari file function.php 
@@ -7,9 +14,8 @@ require 'function.php';
 
 // cek apakah tombol submit apakah sudah di tekan 
 if(isset ($_POST["submit"])){
-
-
-
+  
+    
     // cek data apakah berasil di tambahkan atau tidak 
     if(tambah($_POST)>0){
         echo "
@@ -47,8 +53,11 @@ if(isset ($_POST["submit"])){
 
 
             <li>
-                <label for="gambar">Gambar : </label>
-                <input type="file" name="gambar" id="gambar" required>
+                <label>
+                Gambar :
+                <input  type="file" name="gambar" id="gambar" required autofocus class="gambar" onchange="previewImage()">
+                </label>
+                <img  class="img-preview"  src="img/nophoto.png" width="150px" style="display:block;" >
             </li>
             <li>
                 <label for="nama">Nama : </label>
@@ -77,5 +86,8 @@ if(isset ($_POST["submit"])){
 
 
 <h1><a href="index.php">Kembali ke Tabel mAhasiswa</a></h1>
+
+
+    <script src="js/script.js"></script>
 </body>
 </html>

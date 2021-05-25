@@ -1,15 +1,27 @@
 <?php
+session_start();
 
+
+// jika belom ada variabel global session maka redirec ke login.php 
+if(!isset($_SESSION["login"])){
+    header("location: login.php");
+}
 
 // ngambil data ari file function.php 
 require 'function.php';
+
+if(!isset($_GET['id'])){
+    header("Location:index.php");
+    exit;
+}
+
 
 
 // ambil data di url 
 $id = $_GET["id"];
 
 // query data mahasiswa berdasar id 
-$mahasiswa = query("SELECT * FROM mahasiswa WHERE id = $id ")[0];
+$mahasiswa = tampilkan("SELECT * FROM mahasiswa WHERE id = $id ")[0];
 
 // cek apakah tombol submit apakah sudah di tekan 
 if(isset ($_POST["submit"])){
@@ -41,7 +53,7 @@ if(isset ($_POST["submit"])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah  Data</title>
+    <title>Ubah  Data</title>
 </head>
 <body>
     <h1>Ubah data mahasiswa </h1><br>
@@ -52,15 +64,17 @@ if(isset ($_POST["submit"])){
             <!-- mengirim id dengan inputan yang di sembunyikan dari user  -->
             <input type="hidden" name="id" value="<?= $mahasiswa["id"]; ?>">
 
-            <!-- mengirimkan nama gambar lama jika gambar tak ingin di ubah  -->
-            <input type="hidden" name="gambarlama" value="<?= $mahasiswa["gambar"]; ?>">
-
             <li>
-                
-                <label for="gambar">Gambar : </label> <br>
-                <img width="60px" src="img/<?= $mahasiswa["gambar"]; ?>" alt=""> <br>
-                <input type="file" name="gambar" id="gambar"  >
+             <!-- mengirimkan nama gambar lama jika gambar tak ingin di ubah  -->
+             <input type="hidden" name="gambarlama" value="<?= $mahasiswa["gambar"]; ?>">
+
+            <label>
+                Gambar :
+                <input  type="file" name="gambar" id="gambar" required autofocus class="gambar" onchange="previewImage()">
+                </label>
+                <img  class="img-preview"  src="img/<?= $mahasiswa['gambar']?>" width="150px" style="display:block;" >
             </li>
+
             <li>
                 <label for="nama">Nama : </label>
                 <input type="text" name="nama" id="nama"required value="<?= $mahasiswa["nama"]; ?>">
@@ -89,5 +103,7 @@ if(isset ($_POST["submit"])){
 
 
 <h1><a href="index.php">Kembali ke Tabel mAhasiswa</a></h1>
+
+<script src="js/script.js"></script>
 </body>
 </html>

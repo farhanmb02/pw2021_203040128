@@ -1,19 +1,16 @@
 <?php
 session_start();
 
+
+// jika belom ada variabel global session maka redirec ke login.php 
 if(!isset($_SESSION["login"])){
     header("location: login.php");
 }
 
+
+
 // menghubungkan ke lahaman function
 require 'function.php';
-
-
-
-if(!isset($_GET['id'])){
-    header("Location:index.php");
-    exit;
-}
 
 
 // menangkap data id 
@@ -30,7 +27,7 @@ if(hapusdata($id)>0){
     </script>"; 
 }else{
     echo mysqli_error();
-    echo "<script>alert('Data Gagal di dihapus');</script>"; 
+    echo "<script>alert('Data Gagal di Tambahkan');</script>"; 
     
 }
 

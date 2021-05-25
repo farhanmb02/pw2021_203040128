@@ -65,6 +65,7 @@ function upload(){
     $ukuranfile = $_FILES['gambar']['size'];
     $error = $_FILES['gambar']['error'];
     $tmpname = $_FILES['gambar']['tmp_name'];
+    $tipe_file= $_FILES['gambar']['type'];
 
 
     // cek apakah file di upload 
@@ -95,6 +96,15 @@ function upload(){
         return false;
     }
 
+
+    // cek tipe file 
+    if($tipe_file!= 'image/jpeg' && $tipe_file != 'image/png'){
+        echo "<script>
+        alert('yang anda pilih bukan gambar');
+        </script>";
+        return false;
+    }
+
     // cek ukuran file gambar 
     // 1 mb = 1000000
     if($ukuranfile >1000000){
@@ -116,10 +126,10 @@ function upload(){
 
 
     // parameter (filename,destinasi tujuan)
-    move_uploaded_file($tmpname,'img/'.$namafile);
+    move_uploaded_file($tmpname,'img/'.$namafilebaru);
 
     // mengembalikan nilai nma file untuk di masukan ke variabel gambar
-    return $namafile;
+    return $namafilebaru;
 }
 
 
@@ -163,7 +173,7 @@ function ubah($data){
     $nama = htmlspecialchars($data["nama"]);
     $nrp = htmlspecialchars($data["nrp"]);
     $email = htmlspecialchars($data["email"]);
-      $jurusan = htmlspecialchars($data["jurusan"]);
+    $jurusan = htmlspecialchars($data["jurusan"]);
       
       
       // query insert data 

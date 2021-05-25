@@ -1,10 +1,10 @@
 <?php
 
 // mengkoneksikan ke data base 
-$koneksidb = mysqli_connect("localhost","root","","phpdasar");
+$koneksidb = mysqli_connect("localhost","root","","tubespw_203040128");
 
 // meembuat function untuk di panggil 
-function tampilkan($query){
+function query($query){
 
     // membuat variabel $koneksidb menjadi global scope agarbisa di ambil didalam funtion 
     global $koneksidb;
@@ -34,28 +34,25 @@ function tambah($data){
     
     // ambil data dari setiap element di dalam form
 
-    // tidak terpakai 
-    // $gambar =htmlspecialchars($data["gambar"]);
-
-
     $nama = htmlspecialchars($data["nama"]);
-    $nrp = htmlspecialchars($data["nrp"]);
+    $nip = htmlspecialchars($data["nip"]);
     $email = htmlspecialchars($data["email"]);
-    $jurusan = htmlspecialchars($data["jurusan"]);
+    $bidang = htmlspecialchars($data["bidang"]);
+    $alamat = htmlspecialchars($data["alamat"]);
+    $no_tlp = htmlspecialchars($data["no_tlp"]);
+    $golongan = htmlspecialchars($data["golongan"]);
+    
       
+
     // upload file (gambar)
     $gambar = upload();
         if (!$gambar){
             return false;
         }
-    
 
       
       // query insert data 
-      $query ="INSERT INTO mahasiswa
-    VALUES 
-    ('','$nrp','$nama','$jurusan','$email','$gambar')
-    ";
+      $query ="INSERT INTO karyawan VALUES ('','$nama','$nip','$bidang','$alamat','$gambar','$email','$no_tlp','$golongan')";
 
     mysqli_query($koneksidb,$query);
     
@@ -63,20 +60,22 @@ function tambah($data){
     
 }
 
+
 function upload(){
     $namafile = $_FILES['gambar']['name'];
     $ukuranfile = $_FILES['gambar']['size'];
     $error = $_FILES['gambar']['error'];
     $tmpname = $_FILES['gambar']['tmp_name'];
-    $tipe_file= $_FILES['gambar']['type'];
 
 
     // cek apakah file di upload 
 
     if ($error === 4)
     {
-       
-         return "nophoto.png";
+        echo "<script>
+         alert('pilih gambar untuk di upload');
+         </script>";
+         return false;
 
 
     }
@@ -93,15 +92,6 @@ function upload(){
     if(!in_array($ekstensigambar,$ekstensigambarvalid)){
         echo "<script>
         alert('gambar harus format jpg,jpeg,png');
-        </script>";
-        return false;
-    }
-
-
-    // cek tipe file 
-    if($tipe_file!= 'image/jpeg' && $tipe_file != 'image/png'){
-        echo "<script>
-        alert('yang anda pilih bukan gambar');
         </script>";
         return false;
     }
@@ -136,19 +126,12 @@ function upload(){
 
 
 
-// membuat function Hapus data mahasiswa 
+// membuat function Hapus data karyawan 
 function hapusdata($id){
     global $koneksidb;
     
-// menghaus gambar di folder img 
-    $mhs = tampilkan("SELECT * FROM mahasiswa WHERE id = $id");
-
-    if($mhs['gambar'] != 'nophoto.png'){
-        unlink('img/' . $mhs['gambar']);
-
-    }
     // membuat query mengapus data dengan parameter id yang dikirim dari halaman index dan hapusdata 
-    mysqli_query($koneksidb,"DELETE FROM mahasiswa  WHERE id = $id " or die(mysqli_error($koneksidb)));
+    mysqli_query($koneksidb,"DELETE FROM karyawan  WHERE id = $id ");
     
     // meng cek apakah berasil atau tidak 
     return mysqli_affected_rows($koneksidb);
@@ -164,31 +147,38 @@ function ubah($data){
 
     $id= $data["id"];
 
-    $gambar_lama =htmlspecialchars($data["gambarlama"]);
-    $gambar = upload();
-    if(!$gambar){
-        return false;
+    $gambarlama =htmlspecialchars($data["gambarlama"]);
+    
+    // cek apakah user pilih gambar lama atau baru 
+    // jika gambar tidak di upload maka gunakan gambar lama 
+    if ($_FILES['gambar']['error'] === 4){
+        $gambar = $gambarlama;
     }
-
-    if($gambar == 'nophoto.png'){
-        $gambar = $gambar_lama;
-
+    // tapi jika gambar di isi maka gunakan function upload 
+    else{
+        $gambar =upload();
+        
     }
-
 
 
     $nama = htmlspecialchars($data["nama"]);
-    $nrp = htmlspecialchars($data["nrp"]);
+    $nip = htmlspecialchars($data["nip"]);
     $email = htmlspecialchars($data["email"]);
-      $jurusan = htmlspecialchars($data["jurusan"]);
+    $bidang = htmlspecialchars($data["bidang"]);
+    $alamat = htmlspecialchars($data["alamat"]);
+    $no_tlp = htmlspecialchars($data["no_tlp"]);
+    $golongan = htmlspecialchars($data["golongan"]);
       
       
       // query insert data 
-      $query ="UPDATE mahasiswa SET
-                nrp='$nrp',
+      $query ="UPDATE karyawan SET
                 nama='$nama',
-                jurusan='$jurusan',
+                nip='$nip',
                 email='$email',
+                bidang='$bidang',
+                alamat='$alamat',
+                no_tlp='$no_tlp',
+                golongan='$golongan',
                 gambar='$gambar'
                 WHERE id = $id
                 ";
@@ -198,78 +188,72 @@ function ubah($data){
     return mysqli_affected_rows($koneksidb);
     
 }
+
 function cari($keyword){
     // memakai LIKE dan % agar data yg di tampilkan data yg mengandung inputan dari user 
-    $query = " SELECT * FROM mahasiswa 
+    $query = " SELECT * FROM karyawan 
     WHERE 
     nama LIKE '%$keyword%' OR
-    nrp  LIKE '%$keyword%' OR
-    jurusan LIKE '%$keyword%' OR
-    email LIKE '%$keyword%' 
+    nip  LIKE '%$keyword%' OR
+    bidang LIKE '%$keyword%' 
     ";
 
 
     // mengembalikan fungsi query di baris 7 dengan parameter variabel query lokal
-    return tampilkan($query);
+    return query($query);
 }
 
-function register($data){
-    global $koneksidb;
 
-    // menghilangkan karakter selain string username seperti / dll,dan menjadikan username menjadi lowercase 
-    $username = strtolower(stripcslashes($data["username"]));
+    function register($data){
+        global $koneksidb;
 
-    $password = mysqli_real_escape_string($koneksidb,$data["password"]);
-    $password2 = mysqli_real_escape_string($koneksidb,$data["password2"]);
+        // menghilangkan karakter selain string username seperti / dll,dan menjadikan username menjadi lowercase 
+        $username = strtolower(stripcslashes($data["username"]));
 
-
-    if(empty($username) || empty($password) || empty($password2)){
-        echo "
-        <script>
-            alert('tidak boleh ada yang kosong');
-            
-        </script>"; 
-        return false;
-    }
-
-    // cek username sudah ada belum
-
-    $result = mysqli_query($koneksidb,"SELECT username FROM user WHERE username = '$username'");
-
-    if(mysqli_fetch_assoc($result)){
-        echo "
-        <script>
-            alert('Username telah terdaftar');
-            
-        </script>"; 
-        return false;
-    }
+        $password = mysqli_real_escape_string($koneksidb,$data["password"]);
+        $password2 = mysqli_real_escape_string($koneksidb,$data["password2"]);
 
 
 
+        // cek username sudah ada belum
 
-    // cek konfirmasi password 
-    if($password !== $password2){
-        echo "<script>
-                alert('pastikan password anda sama dengan konfirmasi password');
+        $result = mysqli_query($koneksidb,"SELECT username FROM user WHERE username = '$username'");
+
+        if(mysqli_fetch_assoc($result)){
+            echo "
+            <script>
+                alert('Username telah terdaftar');
                 
             </script>"; 
-        return false;
+            return false;
+        }
+
+
+
+
+        // cek konfirmasi password 
+        if($password !== $password2){
+            echo "<script>
+                    alert('pastikan password anda sama dengan konfirmasi password');
+                    
+                </script>"; 
+            return false;
+        }
+
+
+                // enkripsi dulu password 
+        // parameter(pasword yang mau di ubah ,menambahkan apa dalam passwordnya)
+        $password = password_hash($password,PASSWORD_DEFAULT);
+
+        // tambahkan user bru ke data base 
+        mysqli_query($koneksidb,"INSERT INTO user VALUES('','$username','$password')");
+
+
+
+
+        return mysqli_affected_rows($koneksidb);
     }
 
-
-            // enkripsi dulu password 
-    // parameter(pasword yang mau di ubah ,menambahkan apa dalam passwordnya)
-    $password = password_hash($password,PASSWORD_DEFAULT);
-
-    // tambahkan user bru ke data base 
-    mysqli_query($koneksidb,"INSERT INTO user VALUES('','$username','$password')");
-
-
-
-
-    return mysqli_affected_rows($koneksidb);
-}
 
 
 ?>

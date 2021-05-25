@@ -1,37 +1,3 @@
-<?php
-session_start();
-// ngambil data ari file function.php 
-require 'function.php';
-
-
-// jika belom ada variabel global session maka redirec ke login.php 
-if(!isset($_SESSION["login"])){
-    header("location: login.php");
-}
-
-
-
-
-// pagination 
-
-// konfigurasi
-// $jumlahdataperhalaman = 3;
-
-
-
-
-
-// memanggil function dan memasukan ke variabel mahasiswa (DIURUTKAN BERDASARKAN DATA TERBARU)
-$mahasiswa = query("SELECT * FROM mahasiswa");
-
-// jika tombol cri di klik 
-if(isset($_POST["cari"])){
-    $mahasiswa = cari($_POST["keyword"]);
-}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,75 +6,38 @@ if(isset($_POST["cari"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .home{
-            cursor: pointer;
-            text-decoration:none;
-            color:black;
-        }
-    
+               input{
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+
+}
+   input[type="text"]{
+    background: #fff;
+    border: none;
+    outline: none;
+    padding: 0 25px;
+    border-radius:25px 0 0 25px;
+}
+
+input[type="submit"]{
+    position: relative;
+    border-radius:0 25px 25px 0;
+    border: none;
+    outline: none;
+    padding: 0 25px;
+    color:white;
+    background: #fff;
+}
+
     </style>
-
-
 </head>
 <body>
-
-    <a href="logout.php">logout</a>
-
-
-    <a href="index.php" class="home"> <h1>Daftar mahasiswa</h1></a>
-
-    <a href="tambahmhs.php"> Tambah Data Mahasiswa </a>
-    <br><br>
-    
-
-
-    <form action="" method="post">
-        <input type="text" name="keyword" size="40" placeholder="Cari ...." autocomplete="off" >
-        <button type="submit" name="cari">Cari</button>
-    </form>
-
-    <br>
-    <table border="1" cellpadding="10" cellspacing="0">
-
-        <tr>
-            <th>No.</th>
-            <th>Aksi</th>
-            <th>Gambar</th>
-            <th>Nama</th>
-            <th>NRP</th>
-            <th>Email</th>
-            <th>Jurusan</th>
-            <th></th>
-
-        </tr>
-
-
-<?php $urutan = 1;?>
-<?php foreach($mahasiswa as $mhs):?>
-        <tr>
-            <td><?= $urutan; ?></td>
-            <td>
-                <!-- mengirim data -->
-                <a href="ubah.php?id=<?= $mhs["id"]; ?>">Ubah</a>|
-                <!-- mengirim data -->
-                <!-- dan cek apakah benar mau di hapus  -->
-                <a href="hapusdata.php?id=<?= $mhs["id"]; ?>" onclick=
-                "return confirm('Apakah anda yakin akan menghapus data ini?')">Hapus</a>
-            </td>
-            <td>
-                <img src="img/<?= $mhs["gambar"]; ?>" alt="" width="50">
-            </td>
-            <td><?= $mhs["nama"]; ?></td>
-            <td><?= $mhs["nrp"]; ?></td>
-            <td><?= $mhs["email"]; ?></td>
-            <td><?= $mhs["jurusan"]; ?></td>
-            <td><a href="detail.php?id=<?= $mhs["id"] ?>">Info</a></td>
-
-        
-        </tr>
-<?php $urutan++; ?>
-<?php endforeach; ?>
-
-    </table>
+     <div class="box">
+                    <form action="" method="post">
+                        <input type="text" name="keyword" size="40" placeholder="Cari ...." autocomplete="off" >
+                        <input type="submit" name="cari" value="Cari"></input>
+                    </form>
+                </div>
 </body>
 </html>
