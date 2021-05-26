@@ -29,11 +29,11 @@
           <div class="links">
             <div class="link">
              <a href="index.php"><img src="./images/clipboard.png" alt="" /></a>
-              <h2 class="active">Kuliah</h2>
+              <h2 >Kuliah</h2>
             </div>
             <div class="link">
               <a href="praktikum.php"><img src="./images/working-man.png" alt="" /></a>
-              <h2>Praktikum</h2>
+              <h2 class="active">Praktikum</h2>
             </div>
             <div class="link">
               <a href="tubes.php"><img src="./images/browser.png" alt="" /></a>
@@ -56,12 +56,12 @@
 
           <div class="container">
 
-<?php for($i=2;$i<=17;$i++):?>
+<?php for($i=1;$i<=6;$i++):?>
   <div class="cards">
     <div class="card">
       <div class="card-info">
-        <h2>Pertemuan <?= $i; ?> </h2>
-        <a href="../pertemuan <?= $i; ?>/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
+        <h2>Latihan<?= $i; ?></h2>
+        <a href="../Praktikum/Latihan" ><img src="./images/link.png" width="20px" alt=""></a>
       </div>
     </div>
   </div>
