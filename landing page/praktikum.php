@@ -56,17 +56,57 @@
 
           <div class="container">
 
-<?php for($i=1;$i<=6;$i++):?>
+<?php for($i=1;$i<=2;$i++):?>
   <div class="cards">
     <div class="card">
       <div class="card-info">
         <h2>Latihan<?= $i; ?></h2>
-        <a href="../Praktikum/Latihan" ><img src="./images/link.png" width="20px" alt=""></a>
+        <a href="../Praktikum/Latihan <?= $i; ?>/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
       </div>
     </div>
   </div>
 <?php endfor;?>
 
+<div class="cards">
+    <div class="card">
+      <div class="card-info">
+        <h2>Latihan3</h2>
+        <a href="../Praktikum/Latihan 3/latihan 3e/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
+      </div>
+    </div>
+  </div>
+<div class="cards">
+    <div class="card">
+      <div class="card-info">
+        <h2>Latihan4</h2>
+        <a href="../Praktikum/Latihan 4/latihan4c/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
+      </div>
+    </div>
+  </div>
+<div class="cards">
+    <div class="card">
+      <div class="card-info">
+        <h2>Latihan5</h2>
+        <a href="../Praktikum/Latihan 5/latihan5e/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
+      </div>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-info">
+        <h2>Latihan6</h2>
+        <a href="../Praktikum/Latihan 6/latihan 6C/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
+      </div>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-info">
+        <h2>Tugas Praktikum</h2>
+        <a href="../Praktikum/Tugas praktikum/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
+      </div>
+    </div>
+  </div>
           
 
           </div>
