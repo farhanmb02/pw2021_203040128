@@ -10,6 +10,32 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+
+.card-info a{
+  text-decoration: none;
+  color: #65dfc9;
+  font-size: 11px;
+  font-weight:200;
+  border:1px solid #65dfc9;
+  margin:2px;
+  padding:4px 10px;
+  border-radius:20px;
+}
+.card-info a:hover{
+  background-color: #032653;
+  border: 1px solid #3ebea7 ;
+  color:#3ebea7 ;
+}
+.card-info .flex{
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+
+    </style>
   </head>
   <body>
 
@@ -56,49 +82,80 @@
 
           <div class="container">
 
-<?php for($i=1;$i<=2;$i++):?>
-  <div class="cards">
-    <div class="card">
-      <div class="card-info">
-        <h2>Latihan<?= $i; ?></h2>
-        <a href="../Praktikum/Latihan <?= $i; ?>/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
-      </div>
-    </div>
-  </div>
-<?php endfor;?>
 
-<div class="cards">
-    <div class="card">
-      <div class="card-info">
-        <h2>Latihan3</h2>
-        <a href="../Praktikum/Latihan 3/latihan 3e/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
-      </div>
-    </div>
-  </div>
-<div class="cards">
-    <div class="card">
-      <div class="card-info">
-        <h2>Latihan4</h2>
-        <a href="../Praktikum/Latihan 4/latihan4c/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
-      </div>
-    </div>
-  </div>
-<div class="cards">
-    <div class="card">
-      <div class="card-info">
-        <h2>Latihan5</h2>
-        <a href="../Praktikum/Latihan 5/latihan5e/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
-      </div>
-    </div>
-  </div>
   <div class="cards">
     <div class="card">
       <div class="card-info">
-        <h2>Latihan6</h2>
-        <a href="../Praktikum/Latihan 6/latihan 6C/index.php" ><img src="./images/link.png" width="20px" alt=""></a>
+        <h2>MODUL 1</h2>
+        <a href="../Praktikum/Latihan 1/latihan1a.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 1</a>
+        <a href="../Praktikum/Latihan 1/latihan1b.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 2</a>
+        <a href="../Praktikum/Latihan 1/latihan1c.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 3</a>
       </div>
     </div>
   </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-info">
+        <h2>MODUL 2</h2>
+        <a href="../Praktikum/Latihan 2/latihan2a.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 1</a>
+        <a href="../Praktikum/Latihan 2/latihan2b.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 2</a>
+        <a href="../Praktikum/Latihan 2/latihan2c.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 3</a>
+        <a href="../Praktikum/Latihan 2/latihan2d.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 4</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-info">
+        <h2>MODUL 3</h2>
+        <a href="../Praktikum/Latihan 3/latihan3a.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 1</a>
+        <a href="../Praktikum/Latihan 3/latihan3b.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 2</a>
+        <a href="../Praktikum/Latihan 3/latihan3c.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 3</a>
+        <a href="../Praktikum/Latihan 3/latihan3d.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 4</a>
+        <a href="../Praktikum/Latihan 3/latihan 3e/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 5</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-info">
+        <h2>MODUL 4</h2>
+        <a href="../Praktikum/Latihan 4/Latihan4a/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 1</a>
+        <a href="../Praktikum/Latihan 4/Latihan4b/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 2</a>
+        <a href="../Praktikum/Latihan 4/Latihan4c/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 3</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-info">
+        <h2>MODUL 5</h2>
+        <a href="../Praktikum/Latihan 5/latihan5a/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 1</a>
+        <a href="../Praktikum/Latihan 5/latihan5b/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 2</a>
+        <a href="../Praktikum/Latihan 5/latihan5c/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 3</a>
+        <a href="../Praktikum/Latihan 5/latihan5d/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 4</a>
+        <a href="../Praktikum/Latihan 5/latihan5e/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 5</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-info">
+        <h2>MODUL 6</h2>
+        <div class="flex">
+          <a href="../Praktikum/Latihan 6/Latihan 6A/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 1</a>
+          <a href="../Praktikum/Latihan 6/Latihan 6B/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 2</a>
+          <a href="../Praktikum/Latihan 6/Latihan 6C/index.php" ><img src="./images/link.png" width="20px" alt=""> Latihan 3</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="cards">
     <div class="card">
       <div class="card-info">

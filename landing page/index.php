@@ -56,7 +56,7 @@
 
           <div class="container">
 
-<?php for($i=2;$i<=17;$i++):?>
+<?php for($i=2;$i<=13;$i++):?>
   <div class="cards">
     <div class="card">
       <div class="card-info">

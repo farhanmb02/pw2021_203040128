@@ -42,7 +42,7 @@ main {
 
 .glass {
   background: white;
-  max-height:90vh;
+  max-height:fit-content;
   max-width: 95%;
   background: linear-gradient(
     to right bottom,
@@ -147,7 +147,7 @@ main {
 
 .games {
   flex: 1;
-  margin:2rem 6rem;
+  margin:2rem 2rem;
   display: flex;
   width: fit-content;
   flex-direction: column;
@@ -156,6 +156,7 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  width: fit-content;
 }
 .cards{
   display: flex;
@@ -179,7 +180,7 @@ main {
   box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
   height:fit-content ;
   text-align: center;
-  transition: all ease-in .2s;
+  transition: all ease-in .3s;
 }
 
 
@@ -188,6 +189,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
 }
+
 
 .card:hover{
   color: white;
