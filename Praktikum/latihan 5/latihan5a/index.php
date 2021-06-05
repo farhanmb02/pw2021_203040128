@@ -59,8 +59,8 @@ $karyawan = tampilkan("SELECT * FROM karyawan");
                                     <td><?=  $data["bidang"]; ?></td>
                                     <td><a class="link" href="detail.php?no_pegawai=<?= $data["no_pegawai"] ?>">Info</a></td>
                                     <td>
-                                         <a class="link  " href=""><button type="button" class="btn btn-primary  badge badge-pill tombol ">Ubah</button></a>
-                                         <a class="link  " href=""><button type="button" class="btn btn-danger  badge badge-pill tombol ">hapus</button></a>
+                                         <a class="link" href=""><button type="button" class="btn btn-primary  badge badge-pill tombol ">Ubah</button></a>
+                                         <a class="link" href=""><button type="button" class="btn btn-danger  badge badge-pill tombol ">hapus</button></a>
                                     </td>
                                 </tr>
                             <?php $i++;

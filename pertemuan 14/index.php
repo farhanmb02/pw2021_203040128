@@ -1,4 +1,11 @@
 <?php
+/*
+    Farhan Mohamad Bintang Atoilah
+    203040128
+    https://github.com/farhanmb02/pw2021_203040128
+    pertemuan 14 == 21 maret 2021
+    
+    */
 //  CARA 2
 
 

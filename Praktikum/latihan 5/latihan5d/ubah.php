@@ -9,7 +9,7 @@ require 'functions.php';
 $no_pegawai = $_GET["no_pegawai"];
 
 // query data karyawan berdasar id 
-$data = query("SELECT * FROM karyawan WHERE no_pegawai = $no_pegawai ")[0];
+$data = tampilkan("SELECT * FROM karyawan WHERE no_pegawai = $no_pegawai ")[0];
 
 // cek apakah tombol submit apakah sudah di tekan 
 if(isset ($_POST["submit"])){

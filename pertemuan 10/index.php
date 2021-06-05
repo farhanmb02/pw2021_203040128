@@ -1,6 +1,11 @@
 <?php
-// Tahap 1
-
+/*
+    Farhan Mohamad Bintang Atoilah
+    203040128
+    https://github.com/farhanmb02/pw2021_203040128
+    pertemuan 10 == 7 maret 2021
+    
+    */
 // ngambil data ari file function.php 
 require 'function.php';
 

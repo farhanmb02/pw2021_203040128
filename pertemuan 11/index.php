@@ -1,4 +1,11 @@
 <?php
+/*
+    Farhan Mohamad Bintang Atoilah
+    203040128
+    https://github.com/farhanmb02/pw2021_203040128
+    pertemuan 11 == 8 maret 2021
+    
+    */
 // Tahap 1
 
 // ngambil data ari file function.php 
